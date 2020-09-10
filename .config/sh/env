@@ -24,4 +24,4 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
 # cache files
 export LESSHISTFILE="$XDG_CACHE_HOME/lesshst"
 
-export PATH="$PATH:~/.local/share/npm/bin:$CARGO_HOME/bin:/opt/texlive/2020/bin/x86_64-linux/:$HOME/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/scripts:$HOME/.local/share/npm/bin:$CARGO_HOME/bin:/opt/texlive/2020/bin/x86_64-linux/:$HOME/bin:$HOME/.local/bin"
