@@ -1,0 +1,5 @@
+#!/bin/sh
+
+[ -f "$1" ] && cp "$1" "$HOME/.cache/wall"
+
+xwallpaper --zoom "$HOME/.cache/wall"

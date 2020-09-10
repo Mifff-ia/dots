@@ -1,0 +1,12 @@
+#!/bin/sh
+commands="shutdown reboot suspend"
+
+answer=$(echo "$commands" | tr ' ' '\n' | $HOME/scripts/fzf/menu-fzf)
+
+if [ "$answer" = "shutdown" ]; then
+    sudo poweroff
+elif [ "$answer" = "reboot" ]; then
+    sudo reboot
+elif [ "$answer" = "suspend" ]; then
+    sudo zzz
+fi

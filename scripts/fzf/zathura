@@ -1,0 +1,5 @@
+#!/bin/sh
+filename=$(find -H "$HOME/doc" -type f -print | sed -e 's=.*/==g' | $HOME/scripts/fzf/menu-fzf)
+filename=$(find -H "$HOME/doc" -name "$filename" -type f -print)
+
+[ "" != "$filename" ] && zathura "$filename"

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+bat="/sys/class/power_supply/BAT0"
+read -r capacity <"$bat/capacity"
+read -r status <"$bat/status"
+
+out="$capacity% $status"
+[ -n $1 ] && [ "$1" = "notif" ] && notify-send --urgency=low "$out" || echo "$out"

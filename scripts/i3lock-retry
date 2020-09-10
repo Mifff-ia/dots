@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# Call i3lock repeatedly until it exits cleanly.  For some reason I've had
+# i3lock crash on me and leave my screen unlocked - this is my crappy attempt
+# to fix it.
+#
+# Author: Dave Eddy <dave@daveeddy.com>
+# Date: July 15, 2018
+# License: MIT
+
+. ~/.cache/wal/colors.sh
+
+while ! i3lock -n "$@" -c "$color0"\
+    --line-uses-inside\
+    --insidecolor="${color0}ff"\
+    --insidewrongcolor="${color0}ff"\
+    --ringwrongcolor="${color0}ff"\
+    --wrongcolor="${color1}ff"\
+    --wrongtext="Incorrect"\
+    --noinputtext=""\
+    --ring-width=7\
+    --insidevercolor="${color0}ff"\
+    --ringvercolor="${color0}ff"\
+    --veriftext="Verifying"\
+    --verifcolor="${color4}ff"\
+    --ringcolor="${color0}ff"\
+    --separatorcolor="${color0}ff"\
+    --keyhlcolor="${color4}ff"\
+    --radius=120\
+    --bshlcolor="${color1}ff"; do
+	sleep .1
+done

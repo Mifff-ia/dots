@@ -1,0 +1,5 @@
+#!/bin/sh
+
+command=$(ls -1 "$HOME/scripts/fzf"| sed -e 's=.*/==g' | $HOME/scripts/fzf/menu-fzf)
+
+eval "$HOME/scripts/fzf/$command"

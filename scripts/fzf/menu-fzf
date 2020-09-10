@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Use fzf as a replacement for rofi/dmenu.
+# FZFPOINTER and FZFPROMPT can be used to customise the pointer and prompt respectively.
+
+tmpdir="${XDG_RUNTIME_DIR:-/tmp}"
+
+rm "$tmpdir"/*.fzfmenu*
+# Generate a fifo.
+input=$(mktemp -u -p "$tmpdir" --suffix .fzfmenu.input)
+output=$(mktemp -u -p "$tmpdir" --suffix .fzfmenu.output)
+mkfifo "$input"
+mkfifo "$output"
+chmod 600 "$input" "$output"
+args='--no-hscroll \
+    --cycle \
+    --pointer="${FZFPOINTER:- }" \
+    --prompt="${FZFPROMPT:-  @ }" \
+    --no-bold \
+    --height=8 \
+    --info=hidden \
+    --layout=reverse \
+    --color="gutter:-1,fg+:-1"'
+
+alacritty --class Fuzzy -d 30 8 -e sh -c "cat $input | fzf $args | tee $output" &
+cat > "$input"
+cat "$output"

@@ -1,0 +1,2 @@
+#!/bin/sh
+find -H '/usr/bin' "$HOME/.local/bin" -executable -print | sed -e 's=.*/==g' | $HOME/scripts/fzf/menu-fzf | sh &
