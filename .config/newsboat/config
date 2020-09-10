@@ -1,0 +1,41 @@
+# -- feeds ---------------------------------------------------------------------
+auto-reload yes
+reload-time 120
+reload-threads 4
+download-retries 4
+download-timeout 10
+prepopulate-query-feeds yes
+
+# -- display ------------------------------------------------------------------
+
+show-read-feeds no
+# feed-sort-order unreadarticlecount-asc
+
+color info default default reverse
+color listnormal_unread yellow default
+color listfocus blue default reverse bold
+color listfocus_unread blue default reverse bold
+
+text-width 80
+
+# General
+# -------
+show-keymap-hint yes
+swap-title-and-hints no
+text-width 80
+save-path "~/.local/share/newsboat"
+browser qutebrowser
+confirm-exit no
+
+# unbind keys
+unbind-key ENTER
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+
+# bind keys - vim style
+bind-key j down
+bind-key k up
+bind-key l open
+bind-key h quit
