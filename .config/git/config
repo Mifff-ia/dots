@@ -1,0 +1,7 @@
+[user]
+	email = miffi@tutanota.com
+	name = Mashfi Ishtiaque
+[core]
+	editor = nvim
+[alias]
+	nccommit = commit --allow-empty-message -m \"\"
