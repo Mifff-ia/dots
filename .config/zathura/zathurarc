@@ -1,0 +1,14 @@
+set recolor true
+set recolor-keephue true
+
+set default-bg "#a39a90"
+set default-fg "#dbd6d1"
+set recolor-lightcolor "#16130F"
+set recolor-darkcolor "#dbd6d1"
+
+set guioptions none
+
+map i recolor
+map I recolor
+map b toggle_statusbar
+map B toggle_statusbar
