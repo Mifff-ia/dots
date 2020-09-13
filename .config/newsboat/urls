@@ -3,7 +3,6 @@ https://texblog.org/feed/ "Latex"
 
 https://voidlinux.org/atom.xml "Linux"
 https://lwn.net/headlines/rss "Linux"
-https://lwn.net/headlines/Features "Linux"
 
 http://blog.sigfpe.com/feeds/posts/default "Haskell" "Math" "Physics"
 https://mmhaskell.com/blog?format=rss "Haskell" "AI"
@@ -14,3 +13,5 @@ https://kristerw.blogspot.com/feeds/posts/default "C"
 
 https://blog.codinghorror.com/rss/
 https://mikeash.com/pyblog/rss.py
+
+https://inconvergent.net/atom.xml "Creative Coding" "Lisp"

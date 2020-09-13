@@ -71,6 +71,12 @@ hi Conceal ctermbg=none
 " Common lisp
 Plug 'vlime/vlime', {'rtp': 'vim/'}
 
+let g:vlime_cl_impl = "my_sbcl"
+function! VlimeBuildServerCommandFor_my_sbcl(vlime_loader, vlime_eval)
+    return ["/bin/sbcl",
+                \ "--userinit", expand("$HOME") . "/.config/sbcl/sbclrc"]
+endfunction
+
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
