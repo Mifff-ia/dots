@@ -8,5 +8,3 @@ config_version: 2
 settings:
   content.media_capture:
     https://discord.com: true
-  content.register_protocol_handler:
-    https://mail.tutanota.com#url=%25s: true

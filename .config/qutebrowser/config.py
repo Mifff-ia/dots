@@ -95,4 +95,4 @@ for k,v in qsites.items():
         config.bind('gn' + k, 'open -t ' + v)
 # }}}
 
-config.source('pyconfig/qutewal.py')
+config.source("base16-qutebrowser/themes/minimal/base16-embers.config.py")
