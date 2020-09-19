@@ -3,15 +3,16 @@ https://texblog.org/feed/ "Latex"
 
 https://voidlinux.org/atom.xml "Linux"
 https://lwn.net/headlines/rss "Linux"
+https://sanctum.geek.nz/arabesque/feed/ "Linux" "Vim"
 
 http://blog.sigfpe.com/feeds/posts/default "Haskell" "Math" "Physics"
 https://mmhaskell.com/blog?format=rss "Haskell" "AI"
 
-https://sanctum.geek.nz/arabesque/feed/ "Linux" "Vim"
-
-https://kristerw.blogspot.com/feeds/posts/default "C"
+#https://kristerw.blogspot.com/feeds/posts/default "C"
+https://brennan.io/blog/rss.xml "C" "Linux"
 
 https://blog.codinghorror.com/rss/
 https://mikeash.com/pyblog/rss.py
 
 https://inconvergent.net/atom.xml "Creative Coding" "Lisp"
+http://lisperator.net/atom "Lisp"
