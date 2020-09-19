@@ -2,6 +2,9 @@
 # wm independent hotkeys
 #
 
+super + semicolon
+    $HOME/scripts/touchpad-toggle
+
 # terminal emulator
 super + Return
 	alacritty

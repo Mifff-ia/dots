@@ -25,5 +25,6 @@ mpd &
 
 ~/scripts/setbg
 #~/scripts/dunst-reload
+~/scripts/touchpad-toggle
 
 exec bspwm

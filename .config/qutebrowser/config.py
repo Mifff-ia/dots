@@ -10,7 +10,8 @@ c.colors.webpage.darkmode.enabled = True
 c.url.start_pages = [
         'qute://bookmarks/#bookmarks',
         ]
-c.url.default_page= 'file:///home/muffler/prog/website/index.html'
+# c.url.default_page= 'file:///home/muffler/prog/website/index.html'
+c.url.default_page= 'qute://bookmarks/#bookmarks'
 c.completion.open_categories = ['history']
 
 c.fonts.completion.entry = '10pt Iosevka Fixed'
@@ -48,15 +49,15 @@ c.url.searchengines = {
     'DEFAULT' : 'https://searx.be/?q={}',
     'ddg'     : 'https://duckduckgo.com/?q={}',
     # wikis
-    'aw'      : 'https://wiki.archlinux.org/index.php?search={}',
-    'cw'      : 'http://en.cppreference.com/mwiki/index.php?search={}',
-    'rw'      : 'https://doc.rust-lang.org/stable/std/index.html?search={}',
+    'arch'      : 'https://wiki.archlinux.org/index.php?search={}',
+    'c'      : 'http://en.cppreference.com/mwiki/index.php?search={}',
+    'rus'      : 'https://doc.rust-lang.org/stable/std/index.html?search={}',
     'ho'      : 'https://hoogle.haskell.org/?hoogle={}',
     # miscellaneous
-    'lg'      : 'http://gen.lib.rus.ec/search.php?req={}',
+    'lib'      : 'http://gen.lib.rus.ec/search.php?req={}',
     'gi'      : 'https://github.com/search?q={}',
-    'yt'      : 'https://youtube.com/results?search_query={}',
-    'mw'      : 'https://www.merriam-webster.com/dictionary/{}',
+    'you'      : 'https://youtube.com/results?search_query={}',
+    'mer'      : 'https://www.merriam-webster.com/dictionary/{}',
     # package repos
     'ha'      : 'https://hackage.haskell.org/packages/search?terms={}',
     'purs'    : 'https://pursuit.purescript.org/search?q={}'
