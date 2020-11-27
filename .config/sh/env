@@ -12,6 +12,8 @@ export EDITOR='nvim'
 export BROWSER='qutebrowser'
 export TERMINAL='alacritty'
 
+export GHCUP_USE_XDG_DIRS=1
+
 # data files
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
@@ -28,4 +30,4 @@ export LESSHISTFILE="$XDG_CACHE_HOME/lesshst"
 # extra path modules i don't need right now
 # $HOME/.local/share/npm/bin
 # /opt/texlive/2020/bin/x86_64-linux/
-export PATH="$PATH:$HOME/scripts:$CABAL_DIR/bin:$CARGO_HOME/bin:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.luarocks/bin:$HOME/scripts:$CABAL_DIR/bin:$CARGO_HOME/bin:$HOME/.local/bin"

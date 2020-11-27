@@ -1,5 +1,8 @@
 # vim: ft=sh
 
+# make the mouse hide while typing
+xbanish &
+
 # turn off the annoying bell
 xset b off
 # bsp uses 'X' as default cursor so changed it to the normal one
@@ -8,23 +11,22 @@ xsetroot -cursor_name left_ptr
 xrdb -merge ~/.config/xresources
 
 # set the screenlock and the idle time in seconds
-xss-lock -- ~/scripts/i3lock-retry &
-xset s 600
+#xss-lock -- ~/scripts/i3lock-retry &
+#xset s 600
 
 # switch caps lock and escape
-xmodmap ~/.config/speedswapper
-
-# make the mouse hide while typing
-xbanish &
+setxkbmap -option caps:swapescape
 
 # start the compositor
 #picom -c -l -10 -t -10 -r 15 -b
+picom -b
 
 # start the music player daemon
-mpd &
+#mpd &
 
 ~/scripts/setbg
 #~/scripts/dunst-reload
-~/scripts/touchpad-toggle
+#~/scripts/touchpad-toggle
+
 
 exec bspwm

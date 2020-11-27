@@ -135,7 +135,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 10
+  size: 9.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -156,40 +156,48 @@ font:
   # it is recommended to set `use_thin_strokes` to `false`.
   #use_thin_strokes: true
 
-# Base16 Embers - alacritty color config
-# Jannik Siebert (https://github.com/janniks)
+# Base16 Material Darker 256 - alacritty color config
+# Nate Peterson
 colors:
   # Default colors
   primary:
-    background: '0x16130f'
-    foreground: '0xa39a90'
+    background: '0x212121'
+    foreground: '0xeeffff'
 
   # Colors the cursor will use if `custom_cursor_colors` is true
   cursor:
-    text: '0x16130f'
-    cursor: '0xa39a90'
+    text: '0x212121'
+    cursor: '0xeeffff'
 
   # Normal colors
   normal:
-    black:   '0x16130f'
-    red:     '0x826d57'
-    green:   '0x57826d'
-    yellow:  '0x6d8257'
-    blue:    '0x6d5782'
-    magenta: '0x82576d'
-    cyan:    '0x576d82'
-    white:   '0xa39a90'
+    black:   '0x212121'
+    red:     '0xf07178'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xeeffff'
 
   # Bright colors
   bright:
-    black:   '0x5a5047'
-    red:     '0x828257'
-    green:   '0x2c2620'
-    yellow:  '0x433b32'
-    blue:    '0x8a8075'
-    magenta: '0xbeb6ae'
-    cyan:    '0x825757'
-    white:   '0xdbd6d1'
+    black:   '0x4a4a4a'
+    red:     '0xf07178'
+    green:   '0xc3e88d'
+    yellow:  '0xffcb6b'
+    blue:    '0x82aaff'
+    magenta: '0xc792ea'
+    cyan:    '0x89ddff'
+    white:   '0xffffff'
+
+  indexed_colors:
+    - { index: 16, color: '0xf78c6c' }
+    - { index: 17, color: '0xff5370' }
+    - { index: 18, color: '0x303030' }
+    - { index: 19, color: '0x353535' }
+    - { index: 20, color: '0xb2ccd6' }
+    - { index: 21, color: '0xeeffff' }
 
 draw_bold_text_with_bright_colors: false
 
