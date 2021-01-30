@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [ -n "$WAYLAND_DISPLAY" ]; then
+  firefox-wayland
+else
+  firefox
+fi

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ $(xinput list-props "SynPS/2 Synaptics TouchPad" | grep 'Device Enabled' | gawk -F' ' '{ print $4 }') -eq 0 ]; then
+  xinput --enable "SynPS/2 Synaptics TouchPad"
+  # notify-send --icon=/usr/share/icons/mate/scalable/actions/touchpad-enabled.svg "Enabled" "Your computer's touchpad is enabled."
+else
+  xinput --disable "SynPS/2 Synaptics TouchPad"
+  # notify-send --icon=/usr/share/icons/mate/scalable/actions/touchpad-disabled.svg "Disabled" "Your computer's touchpad is disabled."
+fi

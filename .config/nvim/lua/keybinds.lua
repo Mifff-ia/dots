@@ -5,6 +5,8 @@ vim.g.mapleader = " "
 vimp.nnoremap('J', 'mzJ`z')
 vimp.nnoremap('zx', 'ZZ')
 
+vimp.nnoremap('Q', 'q:')
+
 -- D = d$ and C = c$ ... but Y = yy !?
 vimp.nnoremap('Y', 'y$')
 

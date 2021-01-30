@@ -1,6 +1,6 @@
 local set_options = {
   foldmethod = 'marker',
-  shortmess = 'atToOFI',
+  -- shortmess = 'atToOFI',
   completeopt = 'menuone,noinsert,noselect',
 
   -- search options
@@ -12,7 +12,7 @@ local set_options = {
   splitright = true,
   splitbelow = true,
 
-  -- don't annoy me to save stuff
+  -- don't annoy me to save stuff on buffer switch
   hidden = true,
 
   -- history = 5000,
@@ -36,10 +36,15 @@ local set_options = {
   guicursor = '',
   showmode = false,
   ruler = false,
+  fcs = 'eob: ',
 }
 for option, value in pairs(set_options) do
   vim.api.nvim_set_option(option, value)
 end
+
+-- workaround for issue #12978
+-- but somehow makes nvim act up
+-- vim.cmd("set tabstop=2 shiftwidth=2 expandtab autoindent smartindent")
 
 local global_vars = {
   -- filetype options
@@ -56,7 +61,22 @@ local global_vars = {
   haskell_enable_typeroles = 1,
   haskell_enable_static_pointers = 1,
   haskell_backpack = 1,
+
+  -- snippet options
+  UltiSnipsExpandTrigger = "<c-l>",
+  UltiSnipsJumpForwardTrigger = "<c-l>",
+  UltiSnipsJumpBackwardTrigger = "<c-h>",
+
+  -- lightline options
+  lightline = { colorscheme = 'base16_atelier_savanna' }
 }
 for var, value in pairs(global_vars) do
   vim.api.nvim_set_var(var, value)
 end
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}

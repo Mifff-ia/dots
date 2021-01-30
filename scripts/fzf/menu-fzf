@@ -22,6 +22,6 @@ args='--no-hscroll \
     --layout=reverse \
     --color="gutter:-1,fg+:-1"'
 
-alacritty --class Fuzzy -d 30 8 -e sh -c "cat $input | fzf $args | tee $output" &
+foot --window-size-chars=40x8 --app-id=fuzzy sh -c "cat $input | fzf $args | tee $output" &
 cat > "$input"
 cat "$output"

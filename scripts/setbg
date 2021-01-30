@@ -2,4 +2,8 @@
 
 [ -f "$1" ] && cp "$1" "$HOME/.cache/wall"
 
-xwallpaper --zoom "$HOME/.cache/wall"
+if [ -z "$WAYLAND_DISPLAY" ]; then
+  xwallpaper --zoom "$HOME/.cache/wall"
+else
+  swaybg -i "$HOME/.cache/wall" -m fill &
+fi

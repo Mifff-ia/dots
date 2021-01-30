@@ -5,4 +5,4 @@
 
 # alsactl --file "$XDG_CONFIG_HOME/asound.state" restore
 
-[ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ] && sx
+[ -z $DISPLAY ] && [ $(tty) = /dev/tty1 ] && river

@@ -1,0 +1,22 @@
+#!/bin/sh
+
+musicdir="${XDG_MUSIC_DIR-$HOME/music}"
+
+[ -z "$1" ] && echo "Enter a URL" && exit 1
+
+url="$1"
+
+# Bless stack overflow
+# https://stackoverflow.com/a/9314479/15005102
+# Gets the title of the website
+title="$(wget --quiet -O - $url \
+  | sed -n -e 'H;${x;s!.*<head[^>]*>\(.*\)</head>.*!\1!;tnext};b;:next;s!.*<title>\(.*\)</title>.*!\1!p'\
+  | tr '/' '-')"
+
+album=${title%% | *}
+artist=${title##* | }
+
+dir="$musicdir/$artist/$album"
+
+mkdir -p "$dir"
+youtube-dl "$url" -o "$dir/%(title)s-%(id)s.%(ext)s" --add-metadata
