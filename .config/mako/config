@@ -1,0 +1,8 @@
+font=Cantarell,sans regular bold 10
+background-color=#202020
+text-color=#a7a7a7
+border-color=#505050
+format=<b>%s</b>\n%b
+width=200
+padding=5
+margin=10

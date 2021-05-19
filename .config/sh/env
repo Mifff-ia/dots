@@ -22,13 +22,19 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export STACK_ROOT="$XDG_DATA_HOME/stack"
 export CABAL_DIR="$XDG_DATA_HOME/cabal"
-export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 
 # config files
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/config"
+export CABAL_CONFIG="$XDG_CONFIG_HOME/cabal/config"
 
 # cache files
 export LESSHISTFILE="$XDG_CACHE_HOME/lesshst"
+export PIP_DOWNLOAD_CACHE="$XDG_CACHE_HOME/pip/"
+
+# miscellaneous exports
+export VIRTUAL_ENV_DISABLE_PROMPT=1 # disables vitrualenv from modifying $PS1
 
 # extra path modules i don't need right now
 # $HOME/.local/share/npm/bin

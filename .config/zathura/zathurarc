@@ -1,10 +1,10 @@
 set recolor true
 set recolor-keephue true
 
-set default-bg "#5f6d64"
-set default-fg "#ecf4ee"
-set recolor-lightcolor "#171c19"
-set recolor-darkcolor "#0xecf4ee"
+set default-bg "#303030"
+set default-fg "#a7a7a7"
+set recolor-lightcolor "#191919"
+set recolor-darkcolor "#a7a7a7"
 
 set guioptions none
 

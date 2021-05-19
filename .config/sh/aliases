@@ -6,6 +6,12 @@ alias nc='ncmpcpp'
 
 alias ls='ls --color=auto'
 
+unzips() {
+  for i in "$@"; do
+    unzip "$i"
+  done
+}
+
 #{{{ man
 man() {
   env \
@@ -33,7 +39,6 @@ alias ZZZ='sudo ZZZ'
 # service aliases
 alias musicdl='youtube-dl --add-metadata -f bestaudio'
 
-#{{{ oxo
 oxo() {
     if [ -f "$1" ] ; then
         temp="file=@"
@@ -47,6 +52,3 @@ oxo() {
         echo "$link" | xclip -selection clipboard
     fi
 }
-#}}}
-
-alias ir="irssi --config=$XDG_CONFIG_HOME/irssi/config --home=$XDG_DATA_HOME/irssi"
