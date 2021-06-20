@@ -17,13 +17,46 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] =
 
 lspconfig.clangd.setup({on_attach = lsp_attach})
 lspconfig.hls.setup({
-  on_attach = lsp_attach;
-  settings = {
-    haskell = {
-      formattingProvider = "ormolu";
-      formatOnImportOn = true;
+    on_attach = lsp_attach;
+    settings = {
+      haskell = {
+        formattingProvider = "ormolu";
+        formatOnImportOn = true;
+      };
     };
-  };
+  })
+lspconfig.pyls.setup({
+    on_attach = lsp_attach;
+    root_dir = function(fname)
+      return lspconfig.util.root_pattern(
+        "pyproject.toml",
+        "setup.py",
+        "setup.cfg",
+        "requirements.txt",
+        "mypy.ini",
+        ".pylintrc",
+        ".flake8rc",
+        ".gitignore"
+        )(fname)
+      or lspconfig.util.find_git_ancestor(fname)
+      or vim.loop.os_homedir()
+    end
+  })
+lspconfig.rust_analyzer.setup({
+    on_attach = lsp_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "crate",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
 })
-lspconfig.rust_analyzer.setup({on_attach = lsp_attach;})
 lspconfig.zls.setup({on_attach = lsp_attach;})
