@@ -12,4 +12,11 @@ function M.set_options(tbl)
   end
 end
 
+-- stolen from https://github.com/L3MON4D3/Luasnip/issues/1#issuecomment-835241958
+function M.prequire(...)
+  local status, lib = pcall(require, ...)
+  if (status) then return lib end
+  return nil
+end
+
 return M

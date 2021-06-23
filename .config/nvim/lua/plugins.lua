@@ -1,11 +1,9 @@
+local install_path = vim.fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+
 local execute = vim.api.nvim_command
 local fn = vim.fn
-local util = require('util')
-
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
+if fn.empty(vim.fn.glob(install_path)) > 0 then
+  vim.fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
   execute 'packadd packer.nvim'
 end
 
@@ -15,27 +13,73 @@ require('packer').startup(function()
   -- let packer maintain itself
   use {'wbthomason/packer.nvim', opt = true}
 
-  use {'tweekmonster/startuptime.vim'}
+  use 'tweekmonster/startuptime.vim'
+
+  -- movement/quality of life
+  use {
+    'tpope/vim-commentary',
+    keys = 'gc',
+  }
+  use 'tpope/vim-eunuch'
+  use {
+    'tpope/vim-repeat',
+    opt = true,
+  }
+  use {
+    'tpope/vim-unimpaired',
+    keys = {'[', ']', 'yo'},
+    requires = 'vim-repeat',
+  }
+  use 'machakann/vim-sandwich'
 
   -- lsp
   use {
+    'hrsh7th/nvim-compe',
+    config = function()
+      require'compe'.setup {
+        enabled = true;
+        autocomplete = true;
+        debug = false;
+        min_length = 4;
+        preselect = 'enable';
+        throttle_time = 80;
+        source_timeout = 200;
+        incomplete_delay = 400;
+        max_abbr_width = 100;
+        max_kind_width = 100;
+        max_menu_width = 100;
+        documentation = true;
+
+        source = {
+          path = true;
+          nvim_lsp = true;
+        };
+      }
+    end,
+  }
+  use {
     'neovim/nvim-lspconfig',
-    requires = {'nvim-lua/completion-nvim'}
+    requires = 'nvim-compe',
   }
 
   -- tree sitter
   use {
     'nvim-treesitter/nvim-treesitter',
     config = function()
+      vim.api.nvim_set_option('foldmethod', 'expr')
+      vim.api.nvim_set_option('foldexpr', 'nvim_treesitter#foldexpr()')
       require'nvim-treesitter.configs'.setup {
         ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
         highlight = {
-          enable = false,              -- false will disable the whole extension
+          enable = true, -- false will disable the whole extension
+          custom_captures = {
+            field = "Normal",
+          },
         },
       }
     end,
   }
-  -- use 'nvim-treesitter/playground'
+  use 'nvim-treesitter/playground'
 
   -- nvim config
   use 'svermeulen/vimpeccable'
@@ -44,25 +88,36 @@ require('packer').startup(function()
   -- lisp
   use {
     'guns/vim-sexp',
-    as = 'sexp',
     opt = true,
-    requires = {'tpope/vim-sexp-mappings-for-regular-people', opt=true},
+    requires = {'tpope/vim-sexp-mappings-for-regular-people', 'vim-repeat'},
   }
   use {
     'eraserhd/parinfer-rust',
     run = 'cargo build --release',
-    requires = 'sexp',
+    requires = 'vim-sexp',
   }
 
   -- latex
   use {
     'lervag/vimtex',
+    filetype = 'latex',
+    config = function()
+      require('util').set_vars({
+          tex_flavor = 'latex',
+          vimtex_view_method = 'zathura',
+          vimtex_quickfix_mode = '0',
+        })
+    end,
   }
 
   -- filetype/syntax
-  use 'euclidianAce/BetterLua.vim'
+  use {
+    'euclidianAce/BetterLua.vim',
+    disable = true,
+  }
   use {
     'sheerun/vim-polyglot',
+    disable = true,
     config = function()
       vim.api.nvim_set_var('polyglot_disabled', {'lua.plugin','autoindent'})
     end,
@@ -78,10 +133,21 @@ require('packer').startup(function()
     end,
   }
   use {
-    "folke/zen-mode.nvim",
+    'folke/zen-mode.nvim',
+    module = 'zen-mode',
+    cmd = 'ZenMode',
     config = function()
-      require("zen-mode").setup {}
-    end
+      require('zen-mode').setup {}
+    end,
+  }
+  use {
+    'famiu/feline.nvim',
+    disable = true,
+    config = function()
+      require('feline').setup({
+          preset = 'noicon',
+        })
+    end,
   }
 
   -- fuzzy finding
@@ -94,24 +160,33 @@ require('packer').startup(function()
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}},
   }
 
-  -- movement/quality of life
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-eunuch'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-unimpaired'
-  use 'machakann/vim-sandwich'
-  use 'jesseleite/vim-noh'
 
   -- better gitting
-  use 'tpope/vim-fugitive'
-  -- use {
-  --   'lewis6991/gitsigns.nvim',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim'
-  --   },
-  --   config = function()
-  --     require('gitsigns').setup()
-  --   end
-  -- }
+  use {
+    'TimUntersberger/neogit',
+    module = 'neogit',
+    cmd = 'Neogit',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('neogit').setup {
 
+      }
+    end,
+  }
+  use {
+    'lewis6991/gitsigns.nvim',
+    disable = true,
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
+
+  -- https://github.com/ray-x/lsp_signature.nvim
+  -- https://github.com/mfussenegger/nvim-dap
+  -- 
 end)

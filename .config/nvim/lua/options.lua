@@ -8,6 +8,7 @@ util.set_options {
   ignorecase = true,
   smartcase = true,
   incsearch = true,
+  hlsearch = false,
 
   -- saner split defaults
   splitright = true,
