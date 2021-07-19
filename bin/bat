@@ -1,0 +1,12 @@
+#!/bin/sh
+
+bat="/sys/class/power_supply/BAT0"
+read -r capacity <"$bat/capacity"
+read -r status <"$bat/status"
+
+out="$capacity% $status"
+if [ -n "$1" -a "$1" = "notif" ]; then
+    notify-send --urgency=low "Battery" "$out"
+else
+  echo "$out"
+fi

@@ -1,0 +1,14 @@
+[user]
+	email = miffi@tutanota.com
+	name = Miffi
+	signingkey = 78B3A4CA53206064
+[core]
+	editor = nvim
+[alias]
+	abbrev = log --abbrev-commit
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main

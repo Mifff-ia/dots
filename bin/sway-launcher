@@ -1,0 +1,2 @@
+#!/bin/sh
+find -H '/bin' "$HOME/usr/bin" -executable -print | sed -e 's=.*/==g' | "$(dirname "$0")"/utils/menu-fzf | xargs swaymsg exec

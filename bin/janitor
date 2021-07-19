@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. "$(dirname "$0")/utils/is_running.sh"
+
+inotifywait -m "$HOME" -q -e create --format "%f" | while read filename; do
+case "$filename" in
+  .mono|.dbus|.pki)
+    rm "$HOME/$filename" -r
+    ;;
+  *)
+    continue
+    ;;
+esac
+done

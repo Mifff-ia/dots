@@ -1,0 +1,27 @@
+#!/bin/sh
+
+. "$(dirname "$0")/utils/is_running.sh"
+
+indir="$HOME/downloads"
+
+inotifywait -m "$indir" -e close_write -q --format "%f" | while read filename; do
+case "${filename##*.}" in
+  pdf|epub)
+    outdir="$HOME/media/reading"
+    ;;
+  jpg|jpeg|png|gif)
+    outdir="$HOME/media/images"
+    ;;
+  mp3|ogg|wav)
+    outdir="$HOME/media/audio"
+    ;;
+  mp4|mkv)
+    outdir="$HOME/media/video"
+    ;;
+  *)
+    continue
+    ;;
+esac
+[ -n "$outdir" ] && mv "$indir/$filename" "$outdir"
+done
+

@@ -1,0 +1,42 @@
+# vim: ft=sh
+
+# program aliases
+alias n='nvim'
+alias nc='ncmpcpp'
+
+alias ls='ls --color=auto'
+
+alias htop='btm -b'
+
+unzips() {
+  for i in "$@"; do
+    unzip "$i"
+  done
+}
+
+#{{{ man
+man() {
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+#}}}
+
+# xbps-* commands
+alias xr='doas xbps-remove -R'
+alias xqf='xbps-query -f'
+
+# session management
+alias shut='sudo poweroff'
+alias reboot='sudo reboot'
+alias zzz='sudo zzz'
+alias ZZZ='sudo ZZZ'
+
+# service aliases
+alias musicdl='youtube-dl --add-metadata -f bestaudio'
