@@ -1,0 +1,20 @@
+font Cozette normal 10
+
+set recolor false
+set recolor-keephue true
+
+set default-bg "#303030"
+set default-fg "#a7a7a7"
+set recolor-lightcolor "#191919"
+set recolor-darkcolor "#a7a7a7"
+
+set adjust-open best-fit
+
+set guioptions none
+
+map i recolor
+map I recolor
+map b toggle_statusbar
+map B toggle_statusbar
+
+show-recent 0
