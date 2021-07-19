@@ -1,5 +1,4 @@
-local util = require('util')
-util.set_options {
+require('util').set_options {
   foldmethod = 'marker',
   shortmess = vim.o.shortmess .. 'I',
   completeopt = 'menuone,noinsert,noselect',
@@ -18,13 +17,14 @@ util.set_options {
   hidden = true,
 
   -- history = 5000,
-  
+
   -- number options
   number = false,
 
   -- tab options
   tabstop = 2,
   shiftwidth = 2,
+  softtabstop = 2,
   expandtab = true,
   autoindent = true,
   smartindent = true,
